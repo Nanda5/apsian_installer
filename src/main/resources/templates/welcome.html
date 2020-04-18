@@ -30,7 +30,7 @@ hr {
 			th:src="@{img/appsian-logo.png}" height="50" width="220">
 		</a> <a class="navbar-brand" href="/">Home</a> <a class="navbar-brand"
 			href="/asxas">Instruction</a> <a class="nav navbar-brand"
-			href="/logout">Logout</a>	
+			href="/logout">Logout</a>
 
 	</nav>
 
@@ -88,6 +88,8 @@ hr {
 										th:errors="*{instalType}" class="text-danger"></span>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-6">
 							<div class="row">
 								<div class="form-group col-md-6">
 									<label for="name" class="col-form-label">Jenkins
@@ -98,8 +100,7 @@ hr {
 										th:errors="*{jenkinsUserName}" class="text-danger"></span>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
+
 							<div class="row">
 								<div class="form-group col-md-6">
 									<label for="name" class="col-form-label">Jenkins Pwd: </label>
