@@ -9,17 +9,22 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.apsian</groupId>
-	<artifactId>apsian_installer</artifactId>
+	<groupId>com.appsian</groupId>
+	<artifactId>AppsianAppInstaller-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Apsian_Installer</name>
-	<description>Apsian Installer Project.</description>
+	<name>AppsianAppInstaller-1</name>
+	<description>AppsianAppInstaller</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<bootstrap.version>4.2.1</bootstrap.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,8 +45,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<!-- <exclusions> <exclusion> <groupId>org.junit.vintage</groupId> <artifactId>junit-vintage-engine</artifactId> 
-				</exclusion> </exclusions> -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -58,7 +76,12 @@
 			<artifactId>testng</artifactId>
 			<version>6.14.3</version>
 		</dependency>
-
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

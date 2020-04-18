@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Appsian Installer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+<link href="../../static/css/spring-core.css"
+	th:href="@{css/spring-core.css}" rel="stylesheet" media="screen" />
+<style>
+hr {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#"> <img src=""
+			th:src="@{img/appsian-logo.png}" height="50" width="220">
+		</a> <a class="navbar-brand" href="/">Home</a> <a class="navbar-brand"
+			href="/asxas">Instruction</a> <a class="nav navbar-brand"
+			href="/logout">Logout</a>	
+
+	</nav>
+
+	<div class="container">
+		<div class="text-center">
+			<h3>Installation Form</h3>
+		</div>
+		<hr></hr>
+		<div class="col-md-2"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<form action="#" th:action="@{/install}" th:object="${installForm}"
+					method="post" enctype="">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Database Name:
+									</label> <input type="text" th:field="*{dbName}" class="form-control"
+										id="dbName" placeholder="dbName" required> <span
+										th:if="${#fields.hasErrors('dbName')}" th:errors="*{dbName}"
+										class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Instance Name:
+									</label> <input type="text" th:field="*{instanceName}"
+										class="form-control" id="dbName" placeholder="instanceName"
+										required> <span
+										th:if="${#fields.hasErrors('instanceName')}"
+										th:errors="*{instanceName}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Install
+										Product: </label> <select class="form-control"
+										th:field="*{installProduct}" required>
+										<option th:value=null th:text="--select--" selected></option>
+										<option th:value="amcasjkjxsa" th:text="asdjkasj"></option>
+										<option th:value="smdbkjasd" th:text="saxnvasx"></option>
+									</select> <span th:if="${#fields.hasErrors('installProduct')}"
+										th:errors="*{installProduct}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Install Type:
+									</label> <select class="form-control" th:field="*{instalType}" required>
+										<option th:value=null th:text="--select--" selected></option>
+										<option th:value="amcasjkjxsa" th:text="asdjkasj"></option>
+										<option th:value="smdbkjasd" th:text="saxnvasx"></option>
+									</select> <span th:if="${#fields.hasErrors('instalType')}"
+										th:errors="*{instalType}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Jenkins
+										UserName: </label> <input type="text" th:field="*{jenkinsUserName}"
+										class="form-control" id="dbName" placeholder="jenkinsUserName"
+										required> <span
+										th:if="${#fields.hasErrors('jenkinsUserName')}"
+										th:errors="*{jenkinsUserName}" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Jenkins Pwd: </label>
+									<input type="text" th:field="*{jenkinsPwd}"
+										class="form-control" id="dbName" placeholder="jenkinsPwd"
+										required> <span th:if="${#fields.hasErrors('dbName')}"
+										th:errors="*{jenkinsPwd}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Jenkins URL: </label>
+									<input type="text" th:field="*{jenkinsURL}"
+										class="form-control" id="dbName" placeholder="jenkinsURL"
+										required> <span
+										th:if="${#fields.hasErrors('jenkinsURL')}"
+										th:errors="*{jenkinsURL}" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="name" class="col-form-label">Windows
+										Action: </label> <select class="form-control"
+										th:field="*{windowsAction}" required>
+										<option th:value=null th:text="--select--" selected></option>
+										<option th:value="amcasjkjxsa" th:text="asdjkasj"></option>
+										<option th:value="smdbkjasd" th:text="saxnvasx"></option>
+									</select> <span th:if="${#fields.hasErrors('windowsAction')}"
+										th:errors="*{windowsAction}" class="text-danger"></span>
+								</div>
+							</div>
+							<h4>
+								<span th:text="${message}" style="color: green"></span> <span
+									th:text="${error}" style="color: red"></span>
+							</h4>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-6 mt-5">
+							<input type="submit" class="btn btn-primary" value="RUN">
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
